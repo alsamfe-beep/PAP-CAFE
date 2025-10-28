@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>1 PAP Café — Café & Art Studio, Old Riga</title>
+  <meta name="description" content="1 PAP Café: artisanal coffee, edible art and creative workshops in Old Riga overlooking Doma Square." />
+  <meta name="author" content="1 PAP Café" />
+  <meta name="keywords" content="Riga café, latte art, bakery art, workshops, Old Riga" />
+
+  <!-- Basic JSON-LD localBusiness + WebSite schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "1 PAP Café",
+    "image": "/assets/hero.jpg",
+    "url": "https://1pap.cafe/",
+    "telephone": "+371 2X-XXX-XXX",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Doma laukums 1",
+      "addressLocality": "Riga",
+      "postalCode": "LV-1050",
+      "addressCountry": "LV"
+    },
+    "openingHoursSpecification": [
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"20:00"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"10:00","closes":"18:00"}
+    ]
+  }
+  </script>
+
+  <style>
+    :root{--bg:#faf6f1;--card:#fff;--accent:#7b4b3a;--muted:#8a7d75;--accent-2:#d6bba6}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:#2b2b2b; line-height:1.5}
+    header{background:linear-gradient(180deg, rgba(123,75,58,0.06), transparent); padding:18px 24px; position:sticky; top:0; z-index:30}
+    .container{max-width:1100px; margin:0 auto; padding:0 20px}
+    .nav{display:flex; align-items:center; gap:20px}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+    nav a{color:inherit;text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600}
+    nav a:hover{background:#fff}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;padding:56px 0}
+    .hero .eyebrow{color:var(--muted);font-weight:700}
+    .hero h1{font-family:Georgia, 'Times New Roman', serif;font-size:40px;margin:10px 0;color:var(--accent)}
+    .hero p{color:var(--muted);margin-bottom:18px}
+    .ctas{display:flex;gap:12px}
+    .btn{display:inline-block;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn-primary{background:var(--accent); color:#fff}
+    .btn-ghost{background:transparent;border:2px solid var(--accent); color:var(--accent)}
+    .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 6px 20px rgba(35,35,35,0.06)}
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .menu-item{display:flex;gap:12px;align-items:center}
+    .menu-item img{width:80px;height:80px;object-fit:cover;border-radius:10px}
+    section{padding:38px 0}
+    .section-title{display:flex;align-items:baseline;justify-content:space-between}
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .gallery-grid img{width:100%;height:180px;object-fit:cover;border-radius:8px}
+    .footer{padding:24px 0;color:var(--muted);font-size:14px}
+    .grid-2{display:grid;grid-template-columns:1fr 420px;gap:20px}
+    .card .small{font-size:14px;color:var(--muted)}
+    .lang-toggle{margin-left:auto;display:flex;gap:8px}
+    .chip{padding:6px 10px;border-radius:999px;background:transparent;border:1px solid rgba(0,0,0,0.06);cursor:pointer}
+    .contact-row{display:flex;gap:12px;align-items:center}
+    /* responsive */
+    @media (max-width:980px){.hero{grid-template-columns:1fr;}.menu-grid{grid-template-columns:repeat(2,1fr)}.gallery-grid{grid-template-columns:repeat(2,1fr)}.grid-2{grid-template-columns:1fr}.hero h1{font-size:32px}}
+    @media (max-width:520px){.menu-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr}.nav{flex-wrap:wrap}.brand .logo{display:none}}
+
+    /* simple modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(10,10,10,0.4);display:none;align-items:center;justify-content:center;z-index:60}
+    .modal{width:520px;max-width:92%;}
+  </style>
+</head>
+<body>
+  <header class="card">
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">1P</div>
+        <div>
+          <div style="font-weight:800">1 PAP Café</div>
+          <div style="font-size:12px;color:var(--muted)">Cafe • Art studio • Old Riga</div>
+        </div>
+      </div>
+
+      <nav style="margin-left:28px">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#workshops">Workshops</a>
+        <a href="#artists">Artists</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="lang-toggle">
+        <button class="chip" id="lang-en">EN</button>
+        <button class="chip" id="lang-lv">LV</button>
+        <a class="btn btn-primary" id="bookBtn">Book Workshop</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div>
+        <div class="eyebrow">Doma Square • Old Riga</div>
+        <h1>Where coffee becomes art</h1>
+        <p>1 PAP Café blends artisanal coffee, bakery art, and intimate workshops — a creative corner overlooking Doma Square.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" id="orderBtn">Order Art Coffee</a>
+          <a class="btn btn-ghost" href="#workshops">See Workshops</a>
+        </div>
+
+        <div style="margin-top:22px;display:flex;gap:12px">
+          <div class="card" style="flex:1">
+            <div class="small">Today's highlight</div>
+            <div style="font-weight:800;margin-top:6px">Latte Art: Botanical Series</div>
+            <div style="margin-top:12px" class="menu-grid">
+              <div class="menu-item"><img src="https://picsum.photos/seed/latte1/200/200" alt="latte"><div><div style="font-weight:700">Rose Latte</div><div class="small">€3.90 — edible rose dust</div></div></div>
+              <div class="menu-item"><img src="https://picsum.photos/seed/latte2/200/200" alt="latte"><div><div style="font-weight:700">Mint Matcha</div><div class="small">€4.20 — hand-drawn foam art</div></div></div>
+              <div class="menu-item"><img src="https://picsum.photos/seed/latte3/200/200" alt="latte"><div><div style="font-weight:700">Cocoa Portrait</div><div class="small">€5.50 — request custom design</div></div></div>
+            </div>
+          </div>
+
+          <div class="card" style="width:260px">
+            <div class="small">Next workshop</div>
+            <div style="font-weight:800;margin-top:6px">Edible Watercolors • Sat, Oct 31</div>
+            <div class="small" style="margin-top:12px">By Elīna | Seats left: 6</div>
+            <div style="margin-top:12px"><a class="btn btn-primary" id="quickBook">Reserve</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <img src="https://picsum.photos/seed/cafe/800/800" alt="café" style="width:100%;height:420px;object-fit:cover;border-radius:10px">
+          <div style="margin-top:10px;font-size:13px;color:var(--muted)">View from our window — Doma Square</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="section-title">
+        <h2 style="margin:0">Menu & Custom Orders</h2>
+        <a href="#order" class="small">Order now →</a>
+      </div>
+
+      <div class="grid-2" style="margin-top:14px">
+        <div>
+          <div class="card">
+            <div style="font-weight:800">Custom art orders</div>
+            <div class="small" style="margin-top:8px">Order a pastry or coffee with personalized edible art — upload your idea or choose from artist templates.</div>
+            <ol style="margin-top:10px;color:var(--muted)">
+              <li>Choose product (coffee / pastry)</li>
+              <li>Pick artist style & add note</li>
+              <li>Choose pickup or delivery</li>
+            </ol>
+            <div style="margin-top:12px"><a class="btn btn-primary" id="startOrder">Start an Order</a></div>
+          </div>
+
+          <div class="card" style="margin-top:12px">
+            <div style="font-weight:800">Menu previews</div>
+            <div class="menu-grid" style="margin-top:10px">
+              <div class="menu-item"><img src="https://picsum.photos/seed/cake/200/200"><div><div style="font-weight:700">Butter Cake</div><div class="small">€3.40</div></div></div>
+              <div class="menu-item"><img src="https://picsum.photos/seed/croissant/200/200"><div><div style="font-weight:700">Sourdough Croissant</div><div class="small">€2.50</div></div></div>
+              <div class="menu-item"><img src="https://picsum.photos/seed/bun/200/200"><div><div style="font-weight:700">Cinnamon Bun</div><div class="small">€2.10</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="card">
+            <div style="font-weight:800">Pickup & Delivery</div>
+            <div class="small" style="margin-top:8px">Pickup from Doma Square — delivery within Old Town available.</div>
+            <div style="margin-top:12px"><a class="btn btn-ghost" id="deliveryInfo">Delivery info</a></div>
+          </div>
+
+          <div class="card" style="margin-top:12px">
+            <div style="font-weight:800">Payment</div>
+            <div class="small" style="margin-top:8px">We accept cards (Stripe), Swish, and cash.</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="workshops">
+      <div class="section-title"><h2 style="margin:0">Workshops & Events</h2><a class="small" href="#workshops">Full calendar →</a></div>
+      <div style="margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+        <div class="card">
+          <div style="font-weight:800">Edible Watercolors</div>
+          <div class="small" style="margin-top:6px">Sat, Oct 31 • 14:00 — 16:00</div>
+          <div class="small" style="margin-top:10px">Create watercolor paintings using edible pigments; includes pastry tasting.</div>
+          <div style="margin-top:12px"><a class="btn btn-primary book-now">Book</a></div>
+        </div>
+        <div class="card">
+          <div style="font-weight:800">Latte Portraits</div>
+          <div class="small" style="margin-top:6px">Sun, Nov 09 • 11:00 — 13:00</div>
+          <div class="small" style="margin-top:10px">Learn to create portraits with microfoam and cocoa dusting.</div>
+          <div style="margin-top:12px"><a class="btn btn-primary book-now">Book</a></div>
+        </div>
+        <div class="card">
+          <div style="font-weight:800">Private Group Session</div>
+          <div class="small" style="margin-top:6px">Request a private session for teams or celebrations.</div>
+          <div style="margin-top:12px"><a class="btn btn-ghost book-now">Request</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="artists">
+      <div class="section-title"><h2 style="margin:0">Artists</h2><a class="small" href="#artists">See all artists →</a></div>
+      <div style="margin-top:14px;display:flex;gap:12px;overflow:auto;padding-bottom:6px">
+        <div class="card" style="min-width:240px">
+          <img src="https://picsum.photos/seed/artist1/600/400" style="width:100%;height:140px;object-fit:cover;border-radius:8px"/>
+          <div style="font-weight:800;margin-top:8px">Elīna Bērziņa</div>
+          <div class="small">Painter & edible-ink specialist. Workshops: Edible Watercolors</div>
+        </div>
+        <div class="card" style="min-width:240px">
+          <img src="https://picsum.photos/seed/artist2/600/400" style="width:100%;height:140px;object-fit:cover;border-radius:8px"/>
+          <div style="font-weight:800;margin-top:8px">Mārtiņš Ozols</div>
+          <div class="small">Barista-artist, latte portrait commissions.</div>
+        </div>
+        <div class="card" style="min-width:240px">
+          <img src="https://picsum.photos/seed/artist3/600/400" style="width:100%;height:140px;object-fit:cover;border-radius:8px"/>
+          <div style="font-weight:800;margin-top:8px">Anete K.</div>
+          <div class="small">Confectionery sculptor - bespoke pastries.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="section-title"><h2 style="margin:0">Gallery</h2><a class="small" href="#gallery">View more →</a></div>
+      <div class="gallery-grid" style="margin-top:12px">
+        <img src="https://picsum.photos/seed/g1/800/800" alt="gallery">
+        <img src="https://picsum.photos/seed/g2/800/800" alt="gallery">
+        <img src="https://picsum.photos/seed/g3/800/800" alt="gallery">
+        <img src="https://picsum.photos/seed/g4/800/800" alt="gallery">
+      </div>
+    </section>
+
+    <section id="news">
+      <div class="section-title"><h2 style="margin:0">News & Blog</h2><a class="small" href="#news">Read all →</a></div>
+      <div style="margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+        <article class="card"><div style="font-weight:800">New fall menu: Spiced Poppy</div><div class="small" style="margin-top:8px">Discover our seasonal flavors and artist collabs.</div></article>
+        <article class="card"><div style="font-weight:800">Artist Spotlight: Mārtiņš</div><div class="small" style="margin-top:8px">Barista-artist interview and portfolio.</div></article>
+        <article class="card"><div style="font-weight:800">How we print on meringue</div><div class="small" style="margin-top:8px">Behind-the-scenes of edible-print techniques.</div></article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title"><h2 style="margin:0">Contact & Visit Us</h2><a class="small" href="#contact">Map →</a></div>
+      <div class="grid-2" style="margin-top:12px">
+        <div>
+          <div class="card">
+            <div style="font-weight:800">Find us</div>
+            <div class="small" style="margin-top:8px">Doma laukums 1, Old Riga</div>
+            <div style="margin-top:10px" class="contact-row">
+              <div class="small">Mon–Fri: 09:00–20:00</div>
+            </div>
+            <div style="margin-top:12px">
+              <form id="contactForm">
+                <div style="display:flex;flex-direction:column;gap:8px">
+                  <input placeholder="Your name" required style="padding:8px;border-radius:8px;border:1px solid #eee" />
+                  <input type="email" placeholder="Email" required style="padding:8px;border-radius:8px;border:1px solid #eee" />
+                  <textarea placeholder="Message" rows="4" style="padding:8px;border-radius:8px;border:1px solid #eee"></textarea>
+                  <div style="display:flex;gap:8px"><button class="btn btn-primary" type="submit">Send</button><button class="btn btn-ghost" type="button">Call</button></div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="card">
+            <div style="font-weight:800">Map</div>
+            <div style="margin-top:10px"><iframe src="https://maps.google.com/maps?q=Doma%20laukums%201%20Riga&t=&z=15&ie=UTF8&iwloc=&output=embed" style="width:100%;height:220px;border:0;border-radius:8px"></iframe></div>
+            <div style="margin-top:10px" class="small">Phone: +371 2X-XXX-XXX</div>
+            <div class="small">Email: hello@1pap.cafe</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div>© 2025 1 PAP Café • Doma laukums, Old Riga</div>
+        <div style="display:flex;gap:12px;align-items:center">
+          <a class="small">Privacy</a>
+          <a class="small">Terms</a>
+          <a class="small">Instagram</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Modal skeletons -->
+  <div id="modal" class="modal-backdrop">
+    <div class="modal card">
+      <h3 id="modalTitle">Book a workshop</h3>
+      <form id="modalForm">
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
+          <input placeholder="Full name" required style="padding:8px;border-radius:8px;border:1px solid #eee" />
+          <input placeholder="Email" required style="padding:8px;border-radius:8px;border:1px solid #eee" />
+          <select style="padding:8px;border-radius:8px;border:1px solid #eee"><option>Edible Watercolors (Oct 31)</option><option>Latte Portraits (Nov 9)</option></select>
+          <div style="display:flex;gap:8px"><button class="btn btn-primary" type="submit">Confirm</button><button class="btn btn-ghost" id="modalClose" type="button">Close</button></div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Basic interactions: language toggle + modals + quick booking
+    const langEnBtn = document.getElementById('lang-en');
+    const langLvBtn = document.getElementById('lang-lv');
+    const bookBtn = document.getElementById('bookBtn');
+    const modal = document.getElementById('modal');
+    const modalClose = document.getElementById('modalClose');
+    const quickBook = document.getElementById('quickBook');
+    const orderBtn = document.getElementById('orderBtn');
+    const startOrder = document.getElementById('startOrder');
+
+    function openModal(title){ document.getElementById('modalTitle').innerText = title; modal.style.display='flex'; }
+    function closeModal(){ modal.style.display='none'; }
+
+    bookBtn.addEventListener('click',()=>openModal('Book a workshop'))
+    quickBook.addEventListener('click',()=>openModal('Reserve: Edible Watercolors'))
+    modalClose.addEventListener('click',closeModal)
+    modal.addEventListener('click',(e)=>{ if(e.target===modal) closeModal() })
+
+    orderBtn.addEventListener('click',()=>openModal('Start a custom order'))
+    startOrder.addEventListener('click',()=>openModal('Start a custom order'))
+
+    document.querySelectorAll('.book-now').forEach(b=>b.addEventListener('click',()=>openModal('Book this workshop')))
+
+    // language toggles (simple simulated copy swap)
+    langEnBtn.addEventListener('click',()=>{ document.documentElement.lang='en'; alert('Language: English (demo)') })
+    langLvBtn.addEventListener('click',()=>{ document.documentElement.lang='lv'; alert('Valoda: Latviešu (demo)') })
+
+    // contact form sample handler
+    document.getElementById('contactForm').addEventListener('submit', (e)=>{ e.preventDefault(); alert('Thanks — we received your message (demo).') })
+    document.getElementById('modalForm').addEventListener('submit', (e)=>{ e.preventDefault(); alert('Booking confirmed (demo).'); closeModal(); })
+  </script>
+</body>
+</html>
